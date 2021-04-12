@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+
+			<li Class="CombatExtended.PatchOperationFindMod">
+				<modName>Vanilla Weapons Expanded - Non-Lethal</modName>
+			</li>
+            <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+				<defName>VWE_Gun_Taser</defName>
+				<statBases>
+					<Mass>0.73</Mass>
+					<RangedWeapon_Cooldown>0.10</RangedWeapon_Cooldown>
+					<SightsEfficiency>0.80</SightsEfficiency>
+					<ShotSpread>0.00</ShotSpread>
+					<SwayFactor>0.00</SwayFactor>
+					<Bulk>1.62</Bulk>
+					<WorkToMake>7000</WorkToMake>
+				</statBases>
+				<costList>
+					<Steel>55</Steel>
+					<ComponentIndustrial>5</ComponentIndustrial>
+				</costList>
+				<Properties>
+					<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<defaultProjectile>Bullet_9x18mmMakarov_FMJ</defaultProjectile>
+					<warmupTime>0.2</warmupTime>
+					<range>5</range>
+					<soundCast>Shot_AssaultRifle</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>9</muzzleFlashScale>
+				</Properties>
+
+				<AmmoUser>
+					<magazineSize>1</magazineSize>
+					<reloadTime>1</reloadTime>
+					<ammoSet>Tazerbzzt</ammoSet>
+				</AmmoUser>
+
+				<FireModes>
+					<aiUseBurstMode>FALSE</aiUseBurstMode>
+					<aiAimMode>Snapshot</aiAimMode>
+				</FireModes>
+
+				<weaponTags>
+					<li>CE_AI_Pistol</li>
+					<li>CE_Sidearm</li>
+				</weaponTags>
+			</li> 
+
+
+			 <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+				<defName>VWE_Gun_TearGasLauncher</defName>
+				<statBases>
+					<Mass>0.73</Mass>
+					<RangedWeapon_Cooldown>0.10</RangedWeapon_Cooldown>
+					<SightsEfficiency>2.80</SightsEfficiency>
+					<ShotSpread>0.00</ShotSpread>
+					<SwayFactor>0.00</SwayFactor>
+					<Bulk>1.62</Bulk>
+					<WorkToMake>7000</WorkToMake>
+				</statBases>
+				<costList>
+					<Steel>125</Steel>
+					<ComponentIndustrial>5</ComponentIndustrial>
+				</costList>
+				<Properties>
+					<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<defaultProjectile>Bullet_40x46mmGrenade_HE</defaultProjectile>
+					<ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+					<warmupTime>1.1</warmupTime>
+					<range>22</range>
+					<minRange>0</minRange>
+					<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+					</targetParams>
+					<soundCast>InfernoCannon_Fire</soundCast>
+					<muzzleFlashScale>14</muzzleFlashScale>
+					<ignorePartialLoSBlocker>true</ignorePartialLoSBlocker>
+				</Properties>
+
+				<AmmoUser>
+					<magazineSize>1</magazineSize>
+					<reloadTime>1</reloadTime>
+					<ammoSet>37mm</ammoSet>
+				</AmmoUser>
+
+				<FireModes>
+					<aiUseBurstMode>FALSE</aiUseBurstMode>
+					<aiAimMode>Snapshot</aiAimMode>
+				</FireModes>
+
+				<weaponTags>
+					<li>CE_AI_Pistol</li>
+					<li>CE_Sidearm</li>
+				</weaponTags>
+			</li> 
+			 <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+				<defName>VWE_Gun_DartGun</defName>
+				<statBases>
+					<Mass>0.73</Mass>
+					<RangedWeapon_Cooldown>0.10</RangedWeapon_Cooldown>
+					<SightsEfficiency>0.75</SightsEfficiency>
+					<ShotSpread>0.20</ShotSpread>
+					<SwayFactor>0.20</SwayFactor>
+					<Bulk>1.62</Bulk>
+					<WorkToMake>7000</WorkToMake>
+				</statBases>
+				<costList>
+					<Steel>55</Steel>
+					<ComponentIndustrial>5</ComponentIndustrial>
+				</costList>
+				<Properties>
+					<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<defaultProjectile>Bullet_9x18mmMakarov_FMJ</defaultProjectile>
+					<warmupTime>0.2</warmupTime>
+					<range>30</range>
+					<soundCast>Shot_AssaultRifle</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>9</muzzleFlashScale>
+				</Properties>
+
+				<AmmoUser>
+					<magazineSize>1</magazineSize>
+					<reloadTime>1</reloadTime>
+					<ammoSet>ArrowTrans</ammoSet>
+				</AmmoUser>
+
+				<FireModes>
+					<aiUseBurstMode>FALSE</aiUseBurstMode>
+					<aiAimMode>Snapshot</aiAimMode>
+				</FireModes>
+
+				<weaponTags>
+					<li>CE_AI_Pistol</li>
+					<li>CE_Sidearm</li>
+				</weaponTags>
+			</li> 
+
+		
+
+        </operations>
+    </Operation>
+</Patch>

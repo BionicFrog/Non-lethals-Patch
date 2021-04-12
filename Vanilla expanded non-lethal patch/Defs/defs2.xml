@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <CombatExtended.AmmoSetDef>
+    <defName>37mm</defName>
+    <label>37mm cartridge</label>
+    <ammoTypes>
+      <lol>TearGasRound</lol>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+    <ThingCategoryDef>
+    <defName>37mmm</defName>
+    <label>37mm </label>
+    <parent>AmmoShotguns</parent>
+    <iconPath>UI/Icons/ThingCategories/CaliberShotgun</iconPath>
+  </ThingCategoryDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="37mmAmmoBase" ParentName="SmallAmmoBase" Abstract="True">
+    <description>37mm "grenade" cartridge designed for riot control, usually used in single shot launchers.</description>
+    <statBases>
+      <Mass>0.45</Mass>
+      <Bulk>0.06</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>37mmm</li>
+    </thingCategories>
+    <stackLimit>5000</stackLimit>
+  </ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="37mmAmmoBase">
+    <defName>37mmTearGas</defName>
+    <label>37mm grenade (teargas)</label>
+     <!--<description>Now you can recreate Waco in Rimworld!</description>-->
+    <graphicData>
+      <texPath>Things/Ammo/Shotgun/Slug</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>0.48</Mass>
+      <MarketValue>1.0</MarketValue>
+    </statBases>
+    <ammoClass>Slug</ammoClass>
+    <cookOffProjectile>Bullet_12Gauge_Slug</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="37mmAmmoBase">
+    <defName>lol</defName>
+    <label>37mm grenade (teargas)</label>
+     <description>Now you can recreate Waco in Rimworld!</description>
+    <graphicData>
+      <texPath>Things/Ammo/Shotgun/Slug</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>0.48</Mass>
+      <MarketValue>1.0</MarketValue>
+    </statBases>
+    <ammoClass>Tear</ammoClass>
+    <cookOffProjectile>Bullet_12Gauge_Slug</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="Base37Bullet" ParentName="BaseBullet" Abstract="true">
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Blunt</damageDef>
+      <speed>72</speed>
+      <dropsCasings>true</dropsCasings>
+      <casingMoteDefname>Mote_ShotgunShell</casingMoteDefname>
+    </projectile>
+  </ThingDef>
+<ThingDef Class="CombatExtended.AmmoDef" ParentName="Base37Bullet">
+    <defName>TearGasRound</defName>
+    <label>37mm tear gas round mid-air</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <speed>40</speed>
+      <damageDef>Blunt</damageDef>
+       <explosionRadius>3.9</explosionRadius>
+      <damageAmountBase>0</damageAmountBase>
+      <armorPenetrationSharp>0</armorPenetrationSharp>
+      <armorPenetrationBlunt>3.240</armorPenetrationBlunt>
+      <spreadMult>1</spreadMult>
+      <postExplosionSpawnThingDef>TearGas</postExplosionSpawnThingDef>
+      <postExplosionSpawnChance>1</postExplosionSpawnChance>
+      <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+    </projectile>
+  </ThingDef>
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>Makelol</defName>
+    <label>make 37mm tear gas rounds</label>
+    <description>read the label.</description>
+    <jobString>Making 37mm tear gas rounds</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>12</count>
+      </li>		  
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+        <li>Chemfuel</li>		
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <lol>500</lol>
+    </products>
+    <workAmount>2800</workAmount>
+  </RecipeDef>
+
+
+    <CombatExtended.AmmoSetDef>
+    <defName>ArrowTrans</defName>
+    <label>tranquilizer dart</label>
+    <ammoTypes>
+      <shootytooty>Shootytooybullet</shootytooty>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+    <ThingCategoryDef>
+    <defName>Darts</defName>
+    <label>Darts</label>
+    <parent>AmmoShotguns</parent>
+    <iconPath>UI/Icons/ThingCategories/CaliberShotgun</iconPath>
+  </ThingCategoryDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="DartBased" ParentName="SmallAmmoBase" Abstract="True">
+    <description>Small sleepy pokey stick.</description>
+    <statBases>
+      <Mass>0.045</Mass>
+      <Bulk>0.06</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>Darts</li>
+    </thingCategories>
+    <stackLimit>5000</stackLimit>
+  </ThingDef>
+
+   <ThingDef Class="CombatExtended.AmmoDef" ParentName="DartBased">
+    <defName>shootytooty</defName>
+    <label>sleep dart</label>
+    <graphicData>
+      <texPath>Things/Ammo/Shotgun/Slug</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>0.48</Mass>
+      <MarketValue>1.0</MarketValue>
+    </statBases>
+    <ammoClass>Dart</ammoClass>
+    <cookOffProjectile>Bullet_12Gauge_Slug</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base37Bullet">
+    <defName>Shootytooybullet</defName>
+    <label>dart</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <speed>40</speed>
+      <damageDef>Tranquilizer</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+      <armorPenetrationSharp>2</armorPenetrationSharp>
+      <armorPenetrationBlunt>3.240</armorPenetrationBlunt>
+    </projectile>
+  </ThingDef>
+
+
+ <CombatExtended.AmmoCategoryDef>
+    <defName>TazerAmmo</defName>
+    <label>tazer ammo</label>
+    <labelShort>tazer</labelShort>
+    <description>Tazer ammo</description>
+  </CombatExtended.AmmoCategoryDef>
+   <CombatExtended.AmmoCategoryDef>
+    <defName>Tear</defName>
+    <label>tear gas ammo</label>
+    <labelShort>cry</labelShort>
+    <description>Tear gas ammo</description>
+  </CombatExtended.AmmoCategoryDef>
+
+    <CombatExtended.AmmoCategoryDef>
+    <defName>Dart</defName>
+    <label>sleep dart</label>
+    <labelShort>Dart</labelShort>
+    <description>Dart that makes you sleep.</description>
+  </CombatExtended.AmmoCategoryDef>
+
+    <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>Makeshootytooty</defName>
+    <label>make darts</label>
+    <description>read the label.</description>
+    <jobString>Making darts</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>	
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <shootytooty>500</shootytooty>
+    </products>
+    <workAmount>2800</workAmount>
+  </RecipeDef>
+</Defs>

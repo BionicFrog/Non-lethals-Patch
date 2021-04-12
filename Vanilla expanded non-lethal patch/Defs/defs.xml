@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+ <CombatExtended.AmmoSetDef>
+    <defName>Tazerbzzt</defName>
+    <label>tazer thingy</label>
+    <ammoTypes>
+      <tazerthingy>Bzzt</tazerthingy>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+   <ThingDef Class="CombatExtended.AmmoDef" Name="uwu" ParentName="BaseBullet" Abstract="true">
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Cut</damageDef>
+      <speed>72</speed>
+      <dropsCasings>true</dropsCasings>
+      <casingMoteDefname>Mote_ShotgunShell</casingMoteDefname>
+    </projectile>
+  </ThingDef>
+
+
+ <ThingCategoryDef>
+      <defName>Tazererer</defName>
+      <label>tazer</label>
+      <parent>Ammo</parent>
+      <iconPath>UI/Icons/ThingCategories/AmmoGrenades</iconPath>
+    </ThingCategoryDef>
+
+   <ThingDef Class="CombatExtended.AmmoDef" Name="TazerThingy" ParentName="SmallAmmoBase" Abstract="True">
+    <description>That tazy thing that goes bzzt no idea what's it's name.</description>
+    <statBases>
+      <Mass>0.023</Mass>
+      <Bulk>0.006</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>Tazererer</li>
+    </thingCategories>
+    <stackLimit>5000</stackLimit>
+  </ThingDef>
+
+   <ThingDef Class="CombatExtended.AmmoDef" ParentName="TazerThingy">
+    <defName>tazerthingy</defName>
+    <label>tazer</label>
+    <generateAllowChance>0</generateAllowChance>
+    <graphicData>
+      <texPath>Things/Ammo/Shotgun/Beanbag</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>0.059</Mass>
+      <MarketValue>0.32</MarketValue>
+    </statBases>
+    <ammoClass>TazerAmmo</ammoClass>
+    <cookOffProjectile>Bullet_12Gauge_Beanbag</cookOffProjectile>
+  </ThingDef>
+
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="uwu">
+    <defName>Bzzt</defName>
+    <label>bzzt</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <speed>18</speed>
+      <damageDef>tazeddamage</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+      <armorPenetrationSharp>0</armorPenetrationSharp>
+      <armorPenetrationBlunt>3.240</armorPenetrationBlunt>
+    </projectile>
+  </ThingDef>
+
+   <DamageDef ParentName="BluntBase">
+    <defName>tazeddamage</defName>
+    <label>tazer electrode</label>
+    <deathMessage>{0} has been tazed to death.</deathMessage>
+    <hediff>tazebag</hediff>
+    <hediffSkin>tazebag</hediffSkin>
+    <hediffSolid>tazebag</hediffSolid>
+  </DamageDef>
+  <HediffDef ParentName="DiseaseBase">
+    <defName>tased</defName>
+    <label>tase</label>
+    <description>tased.</description>
+    <isBad>true</isBad>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>4500~12000</disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>tazed</label>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-1</offset>
+          </li>
+        </capMods>
+      </li>
+      </stages>
+    </HediffDef>
+
+
+
+  <HediffDef ParentName="Bruise">
+    <defName>tazebag</defName>
+    <label>taze</label>
+    <labelNoun>a</labelNoun>
+    <comps>
+      <li Class="Blassclibrary.HediffCompProperties_taze">
+        <beyeb>tased</beyeb>
+      </li>
+    </comps>
+  </HediffDef>
+
+
+    <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>Maketazerthingy</defName>
+    <label>make the tazer stuff ammo</label>
+    <description>read the label.</description>
+    <jobString>Making tazer thingies</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>		  
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+        <li>Chemfuel</li>		
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <tazerthingy>500</tazerthingy>
+    </products>
+    <workAmount>2800</workAmount>
+  </RecipeDef>
+
+</Defs>
